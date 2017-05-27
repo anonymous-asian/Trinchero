@@ -58,11 +58,11 @@
 <html>
 <head>	
 	<!-- load jquery ui css-->
-	<link href="jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	<link href="jquery/jquery-ui.min.css" rel="stylesheet" type="text/css" />
 	<!-- load jquery library -->
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- load jquery ui js file -->
-	<script src="jquery-ui.min.js"></script>
+	<script src="jquery/jquery-ui.min.js"></script>
 	
 	<!--Menu bar css-->
 	<link rel="stylesheet" type="text/css" href="css/menumaker.css">

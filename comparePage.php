@@ -8,7 +8,7 @@
       <meta charset = "UTF-8">
       <link rel = "stylesheet"
          type = "text/css"
-         href = "softwareCSS.css"/>
+         href = "css/main.css"/>
 
 	<!--Initialize menu bar plugin-->
 	<script type="text/javascript">

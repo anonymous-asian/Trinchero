@@ -9,7 +9,7 @@
 	<meta charset = "UTF-8">
     <link rel = "stylesheet"
          type = "text/css"
-         href = "softwareCSS.css" />
+         href = "css/main.css" />
 
 	<script>
 	var market;
