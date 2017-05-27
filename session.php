@@ -99,7 +99,7 @@
 		<li><a href="http://www.nielsen.com/us/en/top10s.html">Neilsen Data</a></li>
 		<li><a href="">Contact</a></li>
 		<li style='float:right; right: 115px; top: 14px; color:#FFA07A;'><span class="clickable"><?php echo $login_session; ?></span></li>
-		<li style='float:right; right: -125px;'><a href="login.php">Log Out</a></li>
+		<li style='float:right; right: -125px;'><a href="logout.php">Log Out</a></li>
 	  </ul>
 	</div>
 	
