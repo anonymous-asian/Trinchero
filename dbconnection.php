@@ -1,5 +1,5 @@
 <?php
-	define("DB_SERVER", "127.0.0.1:54631");
+	define("DB_SERVER", "MYSQLCONNSTR_localdb");
 	define("DB_USERNAME", "root");
 	define("DB_PASSWORD", "");
 	define("DB_DATABASE", "trincherodb");
