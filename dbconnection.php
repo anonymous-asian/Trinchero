@@ -1,5 +1,5 @@
 <?php
-	define("DB_SERVER", "localhost");
+	define("DB_SERVER", "http://trinchero-website.azurewebsites.net");
 	define("DB_USERNAME", "trinchero_user");
 	define("DB_PASSWORD", "Trincher0");
 	define("DB_DATABASE", "trincherodb");
