@@ -39,7 +39,7 @@
 			$store_list[] = $array[0];
 			
 			//Query and add store total to over-all total
-			$query = mysql_query("SELECT SUM(cases) FROM `$array[0]`");
+			$query = mysqli_query($db,"SELECT SUM(cases) FROM `$array[0]`");
 			$totalStoreCases = 0;
 			//$totalStoreCases = mysql_result($query, 0 ,0);
 			$totalCases += $totalStoreCases;
