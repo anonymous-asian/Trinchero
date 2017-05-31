@@ -149,7 +149,7 @@ echo $market;
 	}
 	
 	//SQL query for table
-	if($type == "n") {$sql = "SELECT * FROM $market
+	$sql = "SELECT * FROM $market
 							  ORDER BY CASE
 								WHEN `liters` = '750ml' THEN 1
 								WHEN `liters` = '1.5L' THEN 2
@@ -157,33 +157,40 @@ echo $market;
 								WHEN `liters` = 'Comp Brand' THEN 4
 								ELSE 5
 								END,
-								brandName ASC";}
-	else if($type=="liters") {$sql = "SELECT * FROM $market WHERE liters = '$input' ORDER BY liters ASC";}
-	else if($type=="companyName") {$sql = "SELECT * FROM $market WHERE companyName = '$input' ORDER BY brandName ASC";}
-	else {$sql = "SELECT * FROM $market WHERE brandName = '$input' ORDER BY brandName ASC";}
+								brandName ASC";
 	
-	//This connect is for the sum query (two diff types used -> mysql and mysqli!)
-	mysql_select_db("trincherodb") OR DIE("Error: Cannot connect to database");
+	//Declare variables
+	$total_750ml=$total_15L=$total_TFE=$total_cb=$totalStoreCases=0;
 	
 	//Sum of total 750ml cases
-	$query1 = mysql_query("SELECT SUM(cases) FROM $market WHERE liters = '750ml'");
-	$total_750ml = mysql_result($query1, 0 ,0);
+	$query1 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $market WHERE liters = '750ml'");
+	while($row = mysqli_fetch_array($query1)){
+		$total_750ml+=$row['total'];
+	}
 	
 	//Sum of total 1.5L cases
-	$query2 = mysql_query("SELECT SUM(cases) FROM $market WHERE liters = '1.5L'");
-	$total_15L = mysql_result($query2, 0 ,0);
+	$query2 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $market WHERE liters = '1.5L'");
+	while($row = mysqli_fetch_array($query2)){
+		$total_15L+=$row['total'];
+	}
 	
 	//Sum of total TFE cases
-	$query3 = mysql_query("SELECT SUM(cases) FROM $market WHERE liters = 'TFE'");
-	$total_TFE = mysql_result($query3, 0 ,0);
+	$query3 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $market WHERE liters = 'TFE'");
+	while($row = mysqli_fetch_array($query3)){
+		$total_TFE+=$row['total'];
+	}
 	
 	//Sum of total Comp Brand cases
-	$query4 = mysql_query("SELECT SUM(cases) FROM $market WHERE liters = 'Comp Brands'");
-	$total_cb = mysql_result($query4, 0 ,0);
+	$query4 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $market WHERE liters = 'Comp Brands'");
+	while($row = mysqli_fetch_array($query4)){
+		$total_cb+=$row['total'];
+	}
 	
 	//Sum of total store cases
-	$query = mysql_query("SELECT SUM(cases) FROM $market");
-	$totalStoreCases = mysql_result($query, 0 ,0);
+	$query5 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $market");
+	while($row = mysqli_fetch_array($query5)){
+		$totalStoreCases+=$row['total'];
+	}
 	
     $result = mysqli_query($db,$sql);
 ?>
