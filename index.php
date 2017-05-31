@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <?php
    include("dbconnection.php");
-   session_start();
-   
-   echo mysqli_ping($db);
-   
+   session_start();   
    $error = " ";
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // email and password sent from form 
