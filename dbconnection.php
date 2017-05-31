@@ -17,7 +17,7 @@ foreach ($_SERVER as $key => $value)
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
 
-define('DB_NAME', 'trincherodb');
+define('DB_NAME', "trincherodb");
 define('DB_USER', $connectstr_dbusername);
 define('DB_PASSWORD', $connectstr_dbpassword);
 define('DB_HOST', $connectstr_dbhost);
