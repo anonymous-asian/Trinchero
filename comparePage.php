@@ -57,25 +57,48 @@
 				<td><b>Percent: <?php $rounded = rtrim(rtrim(number_format((($totalPerStore[$storeNum]/$totalCases)*100),2, ".", ""), '0'), '.'); echo $rounded; ?>%</b></td>
 				
 				<?php
+					//Declare variables
+					$total_750ml=$total_15L=$total_TFE=$total_cb=$totalStoreCases=0;
+					
 					//Sum of total 750ml cases
-					$query1 = mysql_query("SELECT SUM(cases) FROM `$store` WHERE liters = '750ml'");
-					$total_750ml = mysql_result($query1, 0 ,0);
+					$query1 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store WHERE liters = '750ml'");
+					if($query1){
+						while($row = mysqli_fetch_array($query1)){
+							$total_750ml=$total_750ml+$row['total'];
+						}
+					}
 					
 					//Sum of total 1.5L cases
-					$query2 = mysql_query("SELECT SUM(cases) FROM `$store` WHERE liters = '1.5L'");
-					$total_15L = mysql_result($query2, 0 ,0);
+					$query2 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store WHERE liters = '1.5L'");
+					if($query2){
+						while($row = mysqli_fetch_array($query2)){
+							$total_15L+=$row['total'];
+						}
+					}
 					
 					//Sum of total TFE cases
-					$query3 = mysql_query("SELECT SUM(cases) FROM `$store` WHERE liters = 'TFE'");
-					$total_TFE = mysql_result($query3, 0 ,0);
+					$query3 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store WHERE liters = 'TFE'");
+					if($query3){					
+						while($row = mysqli_fetch_array($query3)){
+							$total_TFE+=$row['total'];
+						}
+					}
 					
 					//Sum of total Comp Brand cases
-					$query4 = mysql_query("SELECT SUM(cases) FROM `$store` WHERE liters = 'Comp Brands'");
-					$total_cb = mysql_result($query4, 0 ,0);
+					$query4 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store WHERE liters = 'Comp Brands'");
+					if($query4){
+						while($row = mysqli_fetch_array($query4)){
+							$total_cb+=$row['total'];
+						}
+					}
 					
 					//Sum of total store cases
-					$query = mysql_query("SELECT SUM(cases) FROM `$store`");
-					$totalStoreCases = mysql_result($query, 0 ,0);
+					$query5 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store");
+					if($query5){					
+						while($row = mysqli_fetch_array($query5)){
+							$totalStoreCases+=$row['total'];
+						}
+					}
 	
 					$sql = "SELECT * FROM `$store`
 							  ORDER BY CASE
@@ -115,7 +138,7 @@
 						}
 						
 						//Percent all cases
-						$rounded = rtrim(rtrim(number_format((($row['cases']/$totalStoreCases)*100),2, ".", ""), '0'), '.');
+						$rounded = rtrim(rtrim(number_format((($row['cases']/$totalPerStore[$storeNum])*100),2, ".", ""), '0'), '.');
 						echo	"<td>".$rounded."%</td>";
 						
 						//Percent display
