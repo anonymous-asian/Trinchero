@@ -18,12 +18,6 @@
       header("location:login.php");
    }
    
-   //Query database for market names
-   	$db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
-	
-	//This connect is for the sum query (two diff types used -> mysql and mysqli!)
-	//mysql_select_db("trincherodb") OR DIE("Error: Cannot connect to database");
-	
 	//Total for all stores
 	$totalCases = 0;
 	
