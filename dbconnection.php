@@ -20,7 +20,7 @@ foreach ($_SERVER as $key => $value)
 define('DB_NAME', $connectstr_dbname);
 define('DB_USER', $connectstr_dbusername);
 define('DB_PASSWORD', $connectstr_dbpassword);
-define('DB_HOST', $connectstr_dbhost);
+define('DB_HOST', 'trincherodb');
 
 // Custom testing
 //echo $connectstr_dbname."\n";
@@ -28,7 +28,7 @@ define('DB_HOST', $connectstr_dbhost);
 //echo $connectstr_dbpassword."\n";
 //echo $connectstr_dbhost."\n";
 
-$db = $dbLink = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'trincherodb');
+$db = $dbLink = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if ($db)
 {
