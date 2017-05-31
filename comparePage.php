@@ -64,7 +64,7 @@
 					$query1 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store WHERE liters = '750ml'");
 					if($query1){
 						while($row = mysqli_fetch_array($query1)){
-							$total_750ml=$total_750ml+$row['total'];
+							$total_750ml+=$row['total'];
 						}
 					}
 					
@@ -72,7 +72,7 @@
 					$query2 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store WHERE liters = '1.5L'");
 					if($query2){
 						while($row = mysqli_fetch_array($query2)){
-							$total_15L=$total_15L+$row['total'];
+							$total_15L+=$row['total'];
 						}
 					}
 					
@@ -80,7 +80,7 @@
 					$query3 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store WHERE liters = 'TFE'");
 					if($query3){					
 						while($row = mysqli_fetch_array($query3)){
-							$total_TFE=$total_TFE+row['total'];
+							$total_TFE+=$row['total'];
 						}
 					}
 					
@@ -88,7 +88,7 @@
 					$query4 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store WHERE liters = 'Comp Brands'");
 					if($query4){
 						while($row = mysqli_fetch_array($query4)){
-							$total_cb=$total_cb+$row['total'];
+							$total_cb+=$row['total'];
 						}
 					}
 					
@@ -96,7 +96,7 @@
 					$query5 = mysqli_query($db,"SELECT SUM(cases) AS total FROM $store");
 					if($query5){					
 						while($row = mysqli_fetch_array($query5)){
-							$totalStoreCases=$totalStoreCases+$row['total'];
+							$totalStoreCases+=$row['total'];
 						}
 					}
 	
