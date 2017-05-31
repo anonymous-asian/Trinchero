@@ -25,7 +25,6 @@
 	$totalPerStore = array();
 	
 	//Query an array to store names
-	//Old query -> SHOW TABLES FROM trincherodb
 	$queryStore = mysqli_query($db,"SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema='trincherodb' ORDER BY table_name ASC");
 	$store_list = array();
 	while($array = mysqli_fetch_array($queryStore)){
@@ -33,9 +32,12 @@
 			$store_list[] = $array[0];
 			
 			//Query and add store total to over-all total
-			$query = mysqli_query($db,"SELECT SUM(cases) FROM `$array[0]`");
+			$query = mysqli_query($db,"SELECT SUM(cases) AS total FROM `$array[0]`");
 			$totalStoreCases = 0;
-			//$totalStoreCases = mysql_result($query, 0 ,0);
+			while($row = mysqli_fetch_array($query)){
+				$totalStoreCases=$row['total'];
+			}
+					
 			$totalCases += $totalStoreCases;
 			$totalPerStore[] = $totalStoreCases;
 		}
