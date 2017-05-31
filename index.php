@@ -24,6 +24,7 @@
          
          header("location: mainmenu.php");
       }else {
+		  header("location: mainmenu.php");
          $error = "Your Email or Password is invalid";
       }
    }
