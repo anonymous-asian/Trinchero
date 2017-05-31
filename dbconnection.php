@@ -20,8 +20,8 @@ $connectstr_dbname = "trincherodb";
 $db = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, $connectstr_dbname);
 
 if($db) {
-	echo "Connected to: ".$connectstr_dbname;
+	//echo "Connected to: ".$connectstr_dbname;
 } else {
-	echo "Failed :(";
+	echo "Failed to connect to database :(";
 }
 ?>
