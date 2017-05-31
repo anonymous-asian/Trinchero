@@ -3,7 +3,7 @@
    include("dbconnection.php");
    session_start();
    
-   echo mysqli_ping();
+   echo mysqli_ping($db);
    
    $error = " ";
    if($_SERVER["REQUEST_METHOD"] == "POST") {
