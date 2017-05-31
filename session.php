@@ -34,14 +34,14 @@
 	//Old query -> SHOW TABLES FROM trincherodb
 	$queryStore = mysqli_query($db,"SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema='trincherodb' ORDER BY table_name ASC");
 	$store_list = array();
-	while($array = mysqli_fetch_array($queryStore,MYSQLI_ASSOC)){
-		if($array[0]!="brands" && $array[0]!="users"){
+	while($array = mysqli_fetch_array($queryStore)){
+		if($array[0]!="users"){
 			$store_list[] = $array[0];
 			
 			//Query and add store total to over-all total
-			$query = mysqli_query($db,"SELECT SUM(cases) FROM `$array[0]`");
+			$query = mysql_query("SELECT SUM(cases) FROM `$array[0]`");
 			$totalStoreCases = 0;
-			$totalStoreCases = mysql_result($query, 0 ,0);
+			//$totalStoreCases = mysql_result($query, 0 ,0);
 			$totalCases += $totalStoreCases;
 			$totalPerStore[] = $totalStoreCases;
 		}
