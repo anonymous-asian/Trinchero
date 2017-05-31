@@ -32,7 +32,7 @@ $db = $dbLink = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if ($db)
 {
-    echo "Successfully connected to the database.\n";
+    //echo "Successfully connected to the database.\n";
 }
 else
 {
