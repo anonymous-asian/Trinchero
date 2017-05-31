@@ -2,6 +2,9 @@
 <?php
    include("dbconnection.php");
    session_start();
+   
+   mysqli_ping();
+   
    $error = " ";
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // email and password sent from form 
