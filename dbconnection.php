@@ -14,4 +14,12 @@ foreach ($_SERVER as $key => $value) {
     $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
+
+$db = mysqli_connect($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, $connectstr_dbname);
+
+if($db) {
+	
+} else {
+	echo "Failed :(";
+}
 ?>
