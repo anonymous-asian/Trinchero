@@ -28,7 +28,7 @@ define('DB_HOST', $connectstr_dbhost);
 //echo $connectstr_dbpassword."\n";
 //echo $connectstr_dbhost."\n";
 
-$db = $dbLink = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$db = $dbLink = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, 'trincherodb');
 
 if ($db)
 {
