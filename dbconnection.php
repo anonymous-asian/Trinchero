@@ -17,16 +17,16 @@ foreach ($_SERVER as $key => $value)
     $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
 }
 
-define('DB_NAME', $connectstr_dbname.'trincherodb');
+define('DB_NAME', $connectstr_dbname);
 define('DB_USER', $connectstr_dbusername);
 define('DB_PASSWORD', $connectstr_dbpassword);
 define('DB_HOST', $connectstr_dbhost);
 
 // Custom testing
-echo $connectstr_dbname."\n";
-echo $connectstr_dbusername."\n";
-echo $connectstr_dbpassword."\n";
-echo $connectstr_dbhost."\n";
+echo $connectstr_dbname."<br>";
+echo $connectstr_dbusername."<br>";
+echo $connectstr_dbpassword."<br>";
+echo $connectstr_dbhost."<br>";
 
 $db = $dbLink = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
